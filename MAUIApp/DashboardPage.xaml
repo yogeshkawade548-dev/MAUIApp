@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIApp.DashboardPage"
+             BackgroundColor="#f0f2f5">
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="30,50,30,30" VerticalOptions="Start">
+            <Grid ColumnDefinitions="*,Auto">
+                <Label Grid.Column="0" Text="📊 Dashboard" FontSize="28" FontAttributes="Bold" TextColor="#333" VerticalOptions="Center" />
+                <Frame Grid.Column="1" BackgroundColor="#dc3545" CornerRadius="20" Padding="10" HasShadow="True">
+                    <Label x:Name="LogoutIcon" Text="→" FontSize="20" TextColor="White" HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLogoutClicked" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Frame>
+            </Grid>
+            
+            <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,*" RowSpacing="20" ColumnSpacing="20">
+                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#4285f4" CornerRadius="15" Padding="20" HasShadow="True">
+                    <StackLayout>
+                        <Label Text="👥 Users" FontSize="16" FontAttributes="Bold" TextColor="White" />
+                        <Label Text="{Binding Users}" FontSize="28" FontAttributes="Bold" TextColor="White" />
+                    </StackLayout>
+                </Frame>
+                
+                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#34a853" CornerRadius="15" Padding="20" HasShadow="True">
+                    <StackLayout>
+                        <Label Text="📦 Orders" FontSize="16" FontAttributes="Bold" TextColor="White" />
+                        <Label Text="{Binding Orders}" FontSize="28" FontAttributes="Bold" TextColor="White" />
+                    </StackLayout>
+                </Frame>
+                
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#ea4335" CornerRadius="15" Padding="20" HasShadow="True">
+                    <StackLayout>
+                        <Label Text="💰 Revenue" FontSize="16" FontAttributes="Bold" TextColor="White" />
+                        <Label Text="{Binding Revenue, StringFormat='${0:N0}'}" FontSize="28" FontAttributes="Bold" TextColor="White" />
+                    </StackLayout>
+                </Frame>
+                
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#fbbc04" CornerRadius="15" Padding="20" HasShadow="True">
+                    <StackLayout>
+                        <Label Text="🛍️ Products" FontSize="16" FontAttributes="Bold" TextColor="White" />
+                        <Label Text="{Binding Products}" FontSize="28" FontAttributes="Bold" TextColor="White" />
+                    </StackLayout>
+                </Frame>
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
